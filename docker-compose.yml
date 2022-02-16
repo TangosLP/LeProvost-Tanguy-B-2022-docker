@@ -1,43 +1,44 @@
+#!/bin/sh
+
 version: "3"
 
-services:
-
 #SCRIPT
- web:
-  build: ./frontend
-    
- #API
- depends_on:
-     - api
+services:
+  web:
+    build: ./frontend
+    depends_on:
+      - api
     ports:
-     - "8888:80"
+      - "8888:80"
     networks:
-     - back
- apirest:
+      - network-backend
+ 
+#API 
+  api:
     build: ./backend
-    
- #DATABASE
- depends_on:
-     - mongodb
+    depends_on:
+      - mongo
     ports:
-     - "8000:80"
+      - "8001:80"
     networks: 
-     - back
+     - network-backend
 
-  mongoDB:
+#DATABASE  
+  mongo:
     image: mongo
     restart: always
     volumes: 
-      - mongodb:/data/mangodb
+      - mongodb_data:/data/db
     environment: 
       MONGODB_INITDB_ROOT_USERNAME: tanguy
       MONGODB_INITDB_ROOT_PASSWORD: tanguy
-
+    ports:
+       - "8000:80"
     networks: 
-     - back
+     - network-backend
 
 networks:
-  back:
+  network-backend:
 
 volumes: 
-  mongodb:
+  mongodb_data:
