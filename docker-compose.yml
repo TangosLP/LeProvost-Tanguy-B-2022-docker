@@ -11,7 +11,7 @@ services:
     ports:
       - "8888:80"
     networks:
-     - back
+     - network-backend
  
 #API 
   api:
@@ -21,7 +21,7 @@ services:
     ports:
       - "8000:8080"
     networks: 
-     - back
+     - network-backend
 
 #DATABASE  
   mongo:
@@ -35,10 +35,11 @@ services:
       
       
     networks: 
-     - back
+     - network-backend
+
 
 networks:
-  - back:
+  - network-backend:
 
 volumes: 
   mongodb:
