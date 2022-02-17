@@ -11,7 +11,7 @@ services:
     ports:
       - "8888:80"
     networks:
-      - network-backend
+     -back
  
 #API 
   api:
@@ -19,26 +19,26 @@ services:
     depends_on:
       - mongo
     ports:
-      - "8001:80"
+      - "8000:8080"
     networks: 
-     - network-backend
+     -back
 
 #DATABASE  
   mongo:
     image: mongo
     restart: always
     volumes: 
-      - mongodb_data:/data/db
+      - mongodb:/data/db
     environment: 
       MONGODB_INITDB_ROOT_USERNAME: tanguy
       MONGODB_INITDB_ROOT_PASSWORD: tanguy
-    ports:
-       - "8000:80"
+      
+      
     networks: 
-     - network-backend
+     -back
 
 networks:
-  network-backend:
+  -back:
 
 volumes: 
-  mongodb_data:
+  mongodb:
