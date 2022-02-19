@@ -6,7 +6,7 @@ Ce court fichier explique brièvement le processus de configurations du projet:
 
 
 
-#docker-compose#
+## docker-compose
 
 ```
 version: "3"
@@ -70,7 +70,7 @@ On fait de même pour les volumes de stockage des données en lui attribuant un 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-#Dockerfile du /frontend
+## Dockerfile du /frontend
 
 
 ```FROM node:10-alpine
@@ -109,7 +109,7 @@ CMD ["node", "server.js"]
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-#Dockerfile du /backend
+## Dockerfile du /backend
 
 ```
 FROM node:10-alpine
