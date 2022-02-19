@@ -1,8 +1,13 @@
 # LeProvost-Tanguy-B-2022-docker
 
+
+
 Ce court fichier explique brièvement le processus de configurations du projet: 
 
-#docker-compose 
+
+
+#docker-compose
+
 
 version: "3"
 services:
@@ -25,7 +30,7 @@ services:
     ports:
       - 8080:8080
     networks: 
-     - back
+      - back
 
 
   mongo:
@@ -45,7 +50,6 @@ networks:
 
 volumes: 
   mongo:
-  ###
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -56,8 +60,7 @@ Les services utilisés sont au nombre de 3 :
 * web: Le service web ou application web. Son image est build dans la partie frontend, il est dépendant du service "api" qui sera configuré juste après. Les ports du service web par défaut sont 3000:3000 et le nom du réseau par défaut est dans mon cas "- back", on le placera dans chaque service.
 * api: Le service api est l'application que nous utiliserons sur notre site web (api rest). L'image est build dans le backend. L'application dépend de la base de données mongo. Les ports de l'api sont laissés par défaut: 8080:8080. On rajoute aussi - back pour lier api au réseau par défaut.
 * mongo: Le service de base de données. Il sert à gérer la base de données SQL. On lui attribue le nom qu'on veut, dans mon cas "mongo". L'image utilisée est mongo, on met en place un redémarrage automatique du service, le dossier où mongo sera stocké mongo, on définie ensuite le compte root de base avec ses identifiants. Pour finir, n'oublions de le lier au réseau par défaut (- back).
-
-On définit par la suite le réseau (networks:) en lui donnant un nom (back), qui est rappelé plus haut dans la configuration par "- back".
+On définit par la suite le réseau (networks:) en lui donnant un nom (back), qui est rappelé plus haut dans la configuration par "-back".
 On fait de même pour les volumes de stockage des données en lui attribuant un nom (mongo pour moi), il sera aussi rappelé dans la configuration par "mongo".
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
