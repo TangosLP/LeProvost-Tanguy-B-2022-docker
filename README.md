@@ -13,7 +13,7 @@ Ce court fichier explique brièvement le processus de configurations du projet:
 services:
 
 
-  ###web:
+  web:
     build: ./frontend
     depends_on:
       - api
@@ -73,7 +73,7 @@ On fait de même pour les volumes de stockage des données en lui attribuant un 
 #Dockerfile du /frontend
 
 
-FROM node:10-alpine
+```FROM node:10-alpine
 
 WORKDIR /app
 
@@ -90,19 +90,20 @@ COPY . .
 EXPOSE 3000
 
 CMD ["node", "server.js"]
+````
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-"FROM node:10-alpine": Définie l'OS utilisé pour la plateforme node.js et sa version  
-"WORKDIR /app": Répertoire de travail de l'application  
-"ENV PATH /app/node_modules/.bin:$PATH": Chemin de l'environnement des variables  
-"COPY package*.json ./": Déplace tous les fichiers .json contenant package vers le répertoire à antérieur (plus haut dans l'arborescence).  
-"RUN apk update": Met à jour les paquets du système alpine du conteneur  
-"RUN npm install": Installation du support npm pour node.js  
-"COPY . .": Copie les fichiers contenus localement et les colle dans le conteneur docker  
-"EXPOSE 3000": Expose le port utilisé par le service web  
-"CMD ["node", "server.js"]": Lance les commandes par défaut dans le conteneur docker à son démarrage.  
+**"FROM node:10-alpine"**: Définie l'OS utilisé pour la plateforme node.js et sa version  
+**"WORKDIR /app"**: Répertoire de travail de l'application  
+**"ENV PATH /app/node_modules/.bin:$PATH"**: Chemin de l'environnement des variables  
+**"COPY package*.json ./"**: Déplace tous les fichiers .json contenant package vers le répertoire à antérieur (plus haut dans l'arborescence).  
+**"RUN apk update"**: Met à jour les paquets du système alpine du conteneur  
+**"RUN npm install"**: Installation du support npm pour node.js  
+**"COPY . ."**: Copie les fichiers contenus localement et les colle dans le conteneur docker  
+**"EXPOSE 3000"**: Expose le port utilisé par le service web  
+**"CMD ["node", "server.js"]"**: Lance les commandes par défaut dans le conteneur docker à son démarrage.  
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -110,7 +111,7 @@ CMD ["node", "server.js"]
 
 #Dockerfile du /backend
 
-
+```
 FROM node:10-alpine
 
 WORKDIR /usr/src/app
@@ -126,16 +127,16 @@ COPY . .
 EXPOSE 8080
 
 CMD ["node", "server.js"]
-
+```
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-"FROM node:10-alpine": Définie l'OS utilisé pour la plateforme node.js et sa version  
-"WORKDIR /usr/src/app": Répertoire de travail de l'application (backend)  
-"COPY package*.json ./": Déplace tous les fichiers .json contenant package vers le répertoire à antérieur (plus haut dans l'arborescence).  
-"RUN apk update": Met à jour les paquets du système alpine du conteneur  
-"RUN npm install": Installation du support npm pour node.js  
-"COPY . .": Copie les fichiers contenus localement et les colle dans le conteneur docker  
-"EXPOSE 8080": Expose le port utilisé par le service de l'application api rest  
-"CMD ["node", "server.js"]": Lance les commandes par défaut dans le conteneur docker à son démarrage.  
+**"FROM node:10-alpine"**: Définie l'OS utilisé pour la plateforme node.js et sa version  
+**"WORKDIR /usr/src/app"**: Répertoire de travail de l'application (backend)  
+**"COPY package*.json ./"**: Déplace tous les fichiers .json contenant package vers le répertoire à antérieur (plus haut dans l'arborescence).  
+**"RUN apk update"**: Met à jour les paquets du système alpine du conteneur  
+**"RUN npm install"**: Installation du support npm pour node.js  
+**"COPY . ."**: Copie les fichiers contenus localement et les colle dans le conteneur docker  
+**"EXPOSE 8080"**: Expose le port utilisé par le service de l'application api rest  
+**"CMD ["node", "server.js"]"**: Lance les commandes par défaut dans le conteneur docker à son démarrage.  
