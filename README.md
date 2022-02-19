@@ -51,7 +51,9 @@ networks:
 volumes: 
   mongo:
 
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 La version "3" est la version de docker utilisée
 
@@ -63,7 +65,10 @@ Les services utilisés sont au nombre de 3 :
 
 On définit par la suite le réseau (networks:) en lui donnant un nom (back), qui est rappelé plus haut dans la configuration par "-back".
 On fait de même pour les volumes de stockage des données en lui attribuant un nom (mongo pour moi), il sera aussi rappelé dans la configuration par "mongo".
+
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 #Dockerfile du /frontend
 
@@ -85,7 +90,9 @@ COPY . .
 EXPOSE 3000
 
 CMD ["node", "server.js"]
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 "FROM node:10-alpine": Définie l'OS utilisé pour la plateforme node.js et sa version
 "WORKDIR /app": Répertoire de travail de l'application
@@ -97,6 +104,7 @@ CMD ["node", "server.js"]
 "EXPOSE 3000": Expose le port utilisé par le service web
 "CMD ["node", "server.js"]": Lance les commandes par défaut dans le conteneur docker à son démarrage.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 #Dockerfile du /backend
 
@@ -116,6 +124,8 @@ COPY . .
 EXPOSE 8080
 
 CMD ["node", "server.js"]
+
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
