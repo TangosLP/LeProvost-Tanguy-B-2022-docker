@@ -6,10 +6,10 @@ Ce court fichier explique brièvement le processus de configurations du projet:
 
 
 
-#docker-compose
+#docker-compose#
 
-
-```version: "3"
+```
+version: "3"
 services:
 
 
@@ -98,7 +98,7 @@ CMD ["node", "server.js"]
 **"FROM node:10-alpine"**: Définie l'OS utilisé pour la plateforme node.js et sa version  
 **"WORKDIR /app"**: Répertoire de travail de l'application  
 **"ENV PATH /app/node_modules/.bin:$PATH"**: Chemin de l'environnement des variables  
-**"COPY package*.json ./"**: Déplace tous les fichiers .json contenant package vers le répertoire à antérieur (plus haut dans l'arborescence).  
+**"COPY package.json ./"**: Déplace package.json vers le répertoire antérieur (plus haut dans l'arborescence).  
 **"RUN apk update"**: Met à jour les paquets du système alpine du conteneur  
 **"RUN npm install"**: Installation du support npm pour node.js  
 **"COPY . ."**: Copie les fichiers contenus localement et les colle dans le conteneur docker  
@@ -134,7 +134,7 @@ CMD ["node", "server.js"]
 
 **"FROM node:10-alpine"**: Définie l'OS utilisé pour la plateforme node.js et sa version  
 **"WORKDIR /usr/src/app"**: Répertoire de travail de l'application (backend)  
-**"COPY package*.json ./"**: Déplace tous les fichiers .json contenant package vers le répertoire à antérieur (plus haut dans l'arborescence).  
+**"COPY package.json ./"**: Déplace package.json vers le répertoire antérieur (plus haut dans l'arborescence).  
 **"RUN apk update"**: Met à jour les paquets du système alpine du conteneur  
 **"RUN npm install"**: Installation du support npm pour node.js  
 **"COPY . ."**: Copie les fichiers contenus localement et les colle dans le conteneur docker  
