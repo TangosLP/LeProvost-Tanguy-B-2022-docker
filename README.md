@@ -9,7 +9,7 @@ Ce court fichier explique brièvement le processus de configurations du projet:
 #docker-compose
 
 
-version: "3"
+```version: "3"
 services:
 
 
@@ -50,7 +50,7 @@ networks:
 
 volumes: 
   mongo:
-
+```
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
