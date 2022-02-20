@@ -145,4 +145,4 @@ CMD ["node", "server.js"]
 
 Une fois ces fichiers créés dans les bons dossiers (Dockerfile dans /backend et l'autre dans /frontend), retourner dans le dossier racine (où se trouve docker-compose.yml) lancer les conteneur en faisant :  
 
-docker-compose up 
+**docker-compose up** 
