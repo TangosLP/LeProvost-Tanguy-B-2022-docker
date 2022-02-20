@@ -140,3 +140,9 @@ CMD ["node", "server.js"]
 **"COPY . ."**: Copie les fichiers contenus localement et les colle dans le conteneur docker  
 **"EXPOSE 8080"**: Expose le port utilisé par le service de l'application api rest  
 **"CMD ["node", "server.js"]"**: Lance les commandes par défaut dans le conteneur docker à son démarrage.  
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Une fois ces fichiers créés dans les bons dossiers (Dockerfile dans /backend et l'autre dans /frontend), retourner dans le dossier racine (où se trouve docker-compose.yml) lancer les conteneur en faisant :  
+
+docker-compose up 
